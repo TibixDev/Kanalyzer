@@ -17,43 +17,19 @@
             <div class="text-center">
                 <p class="mb-2 text-2xl">Main Kana</p>
                 <div class="grid grid-cols-2 gap-4">
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">a</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ka</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">sa</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ta</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">na</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ha</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ma</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ra</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">wa</button>
+                    <KanaToggle v-for="(idx, kana) in $options.KanaList[mode]['main']" :key="idx" :kana="kana"></KanaToggle>
                 </div>
             </div>
             <div class="text-center">
                 <p class="mb-2 text-2xl">Dakuten Kana</p>
                 <div class="grid grid-cols-1 gap-4">
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ga</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">za</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">da</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ba</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">pa</button>
+                    <KanaToggle v-for="(idx, kana) in $options.KanaList[mode]['dakuten']" :key="idx" :kana="kana"></KanaToggle>
                 </div>
             </div>
             <div class="text-center">
                 <p class="mb-2 text-2xl">Combination Kana</p>
                 <div class="grid grid-cols-2 gap-4">
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">kya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">sha</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">cha</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">nya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">hya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">mya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">rya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">gya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">ja</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">dya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">bya</button>
-                    <button class="rounded-lg py-2 px-1 bg-indigo-500">pya</button>
+                    <KanaToggle v-for="(idx, kana) in $options.KanaList[mode]['combination']" :key="idx" :kana="kana"></KanaToggle>
                 </div>
             </div>
         </div>
@@ -64,7 +40,8 @@
 </template>
 
 <script>
-import KanaToggle from "../components/KanaToggle.vue"
+import KanaToggle from "@components/KanaToggle.vue";
+import KanaList from "@assets/KanaList.json";
 
 export default {
     name: "Practice",
@@ -76,11 +53,13 @@ export default {
     methods: {
         toggleMode: function (modeStr) {
             this.mode = modeStr;
+            console.log("Changed mode to " + this.mode)
         }
     },
     components: {
         KanaToggle
-    }
+    },
+    KanaList: KanaList
 }
 </script>
 

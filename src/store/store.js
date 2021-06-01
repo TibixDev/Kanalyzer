@@ -7,7 +7,7 @@ export default createStore({
   },
   mutations: {
     toggleGroup(store, group) {
-      if (store.groups.includes(group)) {
+      if (!store.groups.includes(group)) {
         store.groups.push(group);
       } else {
         store.groups = store.groups.filter((elem) => elem != group);
