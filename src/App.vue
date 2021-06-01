@@ -1,0 +1,25 @@
+<template>
+  <Header/>
+  <router-view/>
+</template>
+
+<script setup>
+import Header from "./components/Header.vue";
+// This starter template is using Vue 3 experimental <script setup> SFCs
+// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+body {
+  background-color: #1F2937;
+  color: white;
+}
+
+#app {
+  font-family: Ubuntu, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
