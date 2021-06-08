@@ -3,20 +3,32 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    groups: [],
+    mode: "hiragana",
+    groups: {
+      main: [],
+      dakuten: [],
+      combination: []
+    },
   },
   mutations: {
-    toggleGroup(store, group) {
-      if (!store.groups.includes(group)) {
-        store.groups.push(group);
+    toggleGroup(store, payload) {
+      console.log("Group, Kind: " + payload.Group + " - " + payload.Kind);
+      if (!store.groups[payload.Kind].includes(payload.Group)) {
+        store.groups[payload.Kind].push(payload.Group);
       } else {
-        store.groups = store.groups.filter((elem) => elem != group);
+        store.groups[payload.Kind] = store.groups[payload.Kind].filter((elem) => elem != payload.Group);
       }
     },
+    changeMode(store, mode) {
+      store.mode = mode;
+    }
   },
   actions: {},
   modules: {},
   getters: {
-    isGroupToggled: store => group => store.groups.includes(group) ? true : false
+    isGroupToggled: store => payload => store.groups[payload.Kind].includes(payload.Group),
+    hasGroups: store => {
+      return (store.groups.main.length != 0 || store.groups.dakuten.length != 0 || store.groups.combination.length != 0)
+    }
   },
 });

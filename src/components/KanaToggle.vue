@@ -2,7 +2,7 @@
     <button
         @click="toggleGroup"
         :class="isGroupToggled ? 'text-white bg-indigo-500': 'ring-4 ring-inset ring-indigo-500 text-indigo-500'"
-        class="rounded-lg py-2 px-1">{{ kana }}
+        class="rounded-lg py-2 px-1">{{ Kana }}
     </button>
 </template>
 
@@ -10,17 +10,19 @@
 export default {
     name: "KanaToggle",
     props: {
-        kana: String
+        Kana: String,
+        Type: String
     },
     computed: {
         isGroupToggled() {
-            return this.$store.getters.isGroupToggled(this.kana);
+            return this.$store.getters.isGroupToggled({Group: this.Kana, Kind: this.Type});
         }
     },
     methods: {
         toggleGroup() {
-            this.$store.commit('toggleGroup', this.kana);
-            console.log(`Toggled group: ${this.kana} (${this.isGroupToggled})`);
+            console.log("Commiting " + this.Kana + " - " + this.Type);
+            this.$store.commit('toggleGroup', {Group: this.Kana, Kind: this.Type});
+            console.log(`Toggled group: ${this.Kana} (${this.isGroupToggled})`);
         }
     }
 }
