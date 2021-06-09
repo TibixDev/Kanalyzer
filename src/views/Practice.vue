@@ -73,7 +73,8 @@ export default {
     components: {
         KanaToggle
     },
-    KanaList: KanaList
+    KanaList: KanaList,
+    // TODO: Reset store when it is fixed
 }
 </script>
 

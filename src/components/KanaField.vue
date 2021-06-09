@@ -13,6 +13,7 @@
                 autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false"
                 v-model="UserInput"
                 @blur="CheckSolution()"
+                @click="UserInput = ''"
                 :disabled="SolutionStatus === true"
             >
         </div>

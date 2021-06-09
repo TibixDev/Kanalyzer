@@ -3,6 +3,7 @@ import Home from '@views/Home.vue'
 import Practice from '@views/Practice.vue'
 import About from '@views/About.vue'
 import Quiz from '@views/Quiz.vue'
+import Finalize from '@views/Finalize.vue'
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/quiz',
         name: 'Quiz',
         component: Quiz,
+    },
+    {
+        path: '/finalize',
+        name: 'Finalize',
+        component: Finalize,
     },
 ]
 const router = createRouter({
