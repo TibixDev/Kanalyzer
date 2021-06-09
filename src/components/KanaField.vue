@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
     name: "KanaField",
     props: {
@@ -33,9 +35,15 @@ export default {
         }
     },
     methods: {
+        ...mapMutations(['addQuizEntry', 'increaseQuizEntryFaults', 'changeQuizEntryStatus']),
         CheckSolution() {
             if (this.UserInput.length > 0) {
-                this.SolutionStatus = this.UserInput === this.Solution;
+                let isCorrect = this.UserInput === this.Solution;
+                this.SolutionStatus = isCorrect;
+                this.changeQuizEntryStatus({ Kana: this.Kana, Status: isCorrect });
+                if (!isCorrect) {
+                    this.increaseQuizEntryFaults(this.Kana);
+                }
             }
         }
     },
@@ -50,6 +58,9 @@ export default {
             else if (this.SolutionStatus === true) return 'text-gray-50'
             else if (this.SolutionStatus === false) return 'text-red-500'
         },
+    },
+    created: function() {
+        this.addQuizEntry({ Kana: this.Kana, Solution: this.Solution })
     }
 }
 </script>

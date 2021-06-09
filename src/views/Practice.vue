@@ -60,10 +60,6 @@ export default {
         ...mapMutations({
             changeMode: 'changeMode'
         }),
-        changeMode: function (modeStr) {
-            this.changeMode(modeStr);
-            console.log("Changed mode to " + this.mode)
-        },
     },
     computed: {
         hasGroups() {
