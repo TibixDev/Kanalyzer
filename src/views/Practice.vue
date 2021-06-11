@@ -75,7 +75,7 @@ export default {
         KanaToggle
     },
     created() {
-
+        this.$store.commit('resetStore');
     }
 }
 </script>
