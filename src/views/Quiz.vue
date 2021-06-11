@@ -21,7 +21,7 @@ export default {
     name: "Quiz",
     components: {
         KanaField
-    },
+    }
 }
 </script>
 

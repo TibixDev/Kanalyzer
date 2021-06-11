@@ -15,6 +15,7 @@
                 @blur="CheckSolution()"
                 @click="UserInput = ''"
                 :disabled="SolutionStatus === true"
+                v-on:keyup.enter="CheckSolution()"
             >
         </div>
     </div>
@@ -39,7 +40,7 @@ export default {
         ...mapMutations(['addQuizEntry', 'increaseQuizEntryFaults', 'changeQuizEntryStatus']),
         CheckSolution() {
             if (this.UserInput.length > 0) {
-                let isCorrect = this.UserInput === this.Solution;
+                let isCorrect = this.UserInput.toLowerCase() === this.Solution;
                 this.SolutionStatus = isCorrect;
                 this.changeQuizEntryStatus({ Kana: this.Kana, Status: isCorrect });
                 if (!isCorrect) {
