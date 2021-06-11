@@ -36,7 +36,7 @@
         <div class="text-center">
             <button
                 @click="$router.push('Quiz')"
-                class="text-3xl mt-5 px-8 py-5 rounded-lg transition duration-300"
+                class="text-3xl mt-5 px-8 py-5 my-10 rounded-lg transition duration-300"
                 :class="hasGroups ? 'bg-indigo-500 hover:bg-indigo-600' : 'bg-gray-500 hover:bg-red-800'"
                 :disabled="!hasGroups">Practice
             </button>
@@ -47,10 +47,11 @@
 <script>
 import KanaToggle from "@components/KanaToggle.vue";
 import KanaList from "@assets/KanaList.json";
-import { mapMutations, mapGetters } from 'vuex';
+import { mapMutations } from 'vuex';
 
 export default {
     name: "Practice",
+    KanaList: KanaList,
     data: () => {
         return {
             mode: "hiragana"
@@ -73,8 +74,9 @@ export default {
     components: {
         KanaToggle
     },
-    KanaList: KanaList,
-    // TODO: Reset store when it is fixed
+    created() {
+
+    }
 }
 </script>
 

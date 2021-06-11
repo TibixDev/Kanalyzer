@@ -8,7 +8,7 @@
             <p>You've passed <strong>{{ $store.state.quizentries.filter(x => x.Status === true).length }}</strong> out of <strong>{{ $store.state.quizentries.length }}</strong></p>
         </div>
         <br>
-        <button @click="$router.push('Practice')" class="bg-indigo-500 mt-5 px-6 py-4 rounded-lg hover:bg-indigo-600 transition duration-300">Retry</button>
+        <button @click="$router.push('Practice')" class="bg-indigo-500 mt-5 px-6 py-4 my-10 rounded-lg hover:bg-indigo-600 transition duration-300">Retry</button>
     </div>
 </template>
 

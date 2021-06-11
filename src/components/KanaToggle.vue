@@ -11,17 +11,16 @@ export default {
     name: "KanaToggle",
     props: {
         Kana: String,
-        Type: String
     },
     computed: {
         isGroupToggled() {
-            return this.$store.getters.isGroupToggled({Group: this.Kana, Kind: this.Type});
+            return this.$store.getters.isGroupToggled(this.Kana);
         }
     },
     methods: {
         toggleGroup() {
-            console.log("Commiting " + this.Kana + " - " + this.Type);
-            this.$store.commit('toggleGroup', {Group: this.Kana, Kind: this.Type});
+            console.log("Commiting " + this.Kana );
+            this.$store.commit('toggleGroup', this.Kana);
             console.log(`Toggled group: ${this.Kana} (${this.isGroupToggled})`);
         }
     }
