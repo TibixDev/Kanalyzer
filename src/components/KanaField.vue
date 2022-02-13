@@ -3,7 +3,7 @@
         class="flex flex-col justify-center text-lg text-center mt-5 px-4 rounded-xl KanaField"
         :class="BackgroundColor"
     >
-        <h1 class="text-5xl py-3">{{ Kana }}</h1>
+        <h1 class="text-5xl py-3 KanaChar">{{ Kana }}</h1>
         <!-- <h1 class="text-xl py-1">({{ Solution }})</h1> -->
         <div class="py-2 text-center">
             <input
@@ -70,5 +70,9 @@ export default {
 <style scoped>
 .KanaField {
     max-width: 6em;
+}
+
+.KanaChar {
+    font-family: 'Noto Sans JP', sans-serif;
 }
 </style>
