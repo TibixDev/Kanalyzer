@@ -57,7 +57,7 @@ export default createStore({
       let solvedKana = store.quizentries.filter(e => e.Status === true)
       let tries = 0;
       solvedKana.forEach(e => tries += e.Faults + 1);
-      return tries / solvedKana.length;
+      return (tries / solvedKana.length).toFixed(2);
     } 
   },
 });
