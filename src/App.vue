@@ -1,12 +1,10 @@
 <template>
-  <Header/>
-  <router-view/>
+    <Header></Header>
+    <router-view />
 </template>
 
 <script setup>
 import Header from "./components/Header.vue";
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
 </script>
 
 <style>
@@ -14,13 +12,13 @@ import Header from "./components/Header.vue";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
 
 body {
-  background-color: #1F2937;
-  color: white;
+    background-color: #1F2937;
+    color: white;
 }
 
 #app {
-  font-family: Ubuntu, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: Ubuntu, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 </style>

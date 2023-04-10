@@ -30,8 +30,20 @@ export default createStore({
     increaseQuizEntryFaults(store, Kana) {
       store.quizentries[store.quizentries.findIndex(e => e.Kana === Kana)].Faults++;
     },
+    // Resets the quiz entries
+    resetQuizEntries(store) {
+      console.log("Reset all quiz entries")
+      store.quizentries = [];
+    },
+    // Resets the groups
+    resetGroups(store) {
+      console.log("Reset all groups")
+      store.groups = [];
+    },
     // Changes the quiz entry status to either one of ['unsolved', true, false]
     changeQuizEntryStatus(store, payload) {
+      console.log("changeQuizEntryStatus", store, payload)
+      console.log(store.quizentries)
       store.quizentries[store.quizentries.findIndex(e => e.Kana === payload.Kana)].Status = payload.Status;
     },
     // Sets the store state to the default state (TODO: Fix)

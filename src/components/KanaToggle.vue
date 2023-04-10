@@ -6,27 +6,17 @@
     </button>
 </template>
 
-<script>
-export default {
-    name: "KanaToggle",
-    props: {
-        Kana: String,
-    },
-    computed: {
-        isGroupToggled() {
-            return this.$store.getters.isGroupToggled(this.Kana);
-        }
-    },
-    methods: {
-        toggleGroup() {
-            console.log("Commiting " + this.Kana );
-            this.$store.commit('toggleGroup', this.Kana);
-            console.log(`Toggled group: ${this.Kana} (${this.isGroupToggled})`);
-        }
-    }
+<script setup>
+import { defineProps, computed } from 'vue';
+import { useStore } from 'vuex';
+const $store = useStore();
+const props = defineProps(["Kana"]);
+
+const isGroupToggled = computed(() => $store.getters.isGroupToggled(props.Kana));
+
+function toggleGroup() {
+    console.log("Commiting " + props.Kana );
+    $store.commit('toggleGroup', props.Kana);
+    console.log(`Toggled group: ${props.Kana} (${props.isGroupToggled})`);
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,35 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@views/Home.vue'
-import Practice from '@views/Practice.vue'
-import About from '@views/About.vue'
-import Quiz from '@views/Quiz.vue'
-import Finalize from '@views/Finalize.vue'
 
 const routes = [
     {
         path: '/',
         name: 'Home',
-        component: Home,
+        component: () => import("../views/Home.vue"),
     },
     {
         path: '/practice',
         name: 'Practice',
-        component: Practice,
+        component: () => import("../views/Practice.vue"),
     },
     {
         path: '/about',
         name: 'About',
-        component: About,
+        component: () => import("../views/About.vue"),
     },
     {
         path: '/quiz',
         name: 'Quiz',
-        component: Quiz,
+        component: () => import("../views/Quiz.vue"),
     },
     {
         path: '/finalize',
         name: 'Finalize',
-        component: Finalize,
+        component: () => import("../views/Finalize.vue"),
     },
 ]
 const router = createRouter({
