@@ -35,7 +35,7 @@ let props = defineProps({
 });
 
 function checkSolution() {
-    let kanaInput = document.querySelector(`[tabindex="${props.TabID + 1}"]`);
+    let kanaInput = document.querySelector(`[tabindex="${props.TabID + 2}"]`);
     if (userInput.length > 0) {
         let isCorrect = userInput.toLowerCase() === props.Solution;
         solutionStatus = isCorrect;
